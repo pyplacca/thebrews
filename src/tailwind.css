@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	html {
+		scroll-behavior: smooth;
+	}
+
+	body {
+		@apply bg-primary/10;
+	}
+
+	header {
+		@apply fixed top-0 left-0 w-full z-10;
+		transition: transform .5s ease-out, background-color .2s ease-out;
+	}
+
+	header.alt {
+		@apply bg-black bg-opacity-70;
+		backdrop-filter: blur(5px);
+	}
+
+	header.hide {
+		transform: translateY(-100%);
+	}
+
+	header nav ul {
+		@apply flex gap-x-4 justify-center lg:justify-end text-white font-medium;
+	}
+
+	header nav ul a,
+	footer a {
+		letter-spacing: 0.1em;
+	}
+
+	header,
+	footer {
+	@apply container py-6 max-w-full;
+	}
+
+	footer {
+		@apply bg-primary flex flex-col md:flex-row md:items-center gap-x-6 gap-y-4 text-white;
+		position: relative;
+		z-index: 10;
+	}
+
+	.date {
+		@apply hidden md:flex fixed left-8 text-[#B7B7B7] font-sans-serif;
+		font-size: 7.5rem;
+		line-height: 1;
+		opacity: .5;
+		mix-blend-mode: hard-light;
+		writing-mode: tb;
+		justify-content: center;
+		height: 100vh;
+	}
+
+	.date::before {
+		content: attr(data-value);
+		color: transparent;
+		-webkit-text-stroke: 1px #B7B7B7;
+		position: absolute;
+		transform: translateX(25%);
+	}
+
+	.action-btn svg path.arrow {
+		transition: transform .3s ease-in-out;
+	}
+	.action-btn:hover svg path.arrow {
+		transform: translateX(10%);
+	}
+	.action-btn.down:hover svg path.arrow {
+		transform: translateY(10%);
+	}
+
+	[data-title] {
+		@apply font-serif text-6xl isolate relative;
+	}
+
+	[data-title]::before {
+		content: attr(data-title);
+		position: absolute;
+		top: 0;
+		font-size: 5rem;
+		font-family: 'Hind Madurai';
+		line-height: 1;
+		letter-spacing: .2em;
+		text-transform: uppercase;
+		color: rgba(165, 165, 165, 0.15);
+		z-index: -1;
+		transform: translateY(-.5em);
+	}
+
+	[data-title][data-align="right"]::before {
+		right: -.25em;
+	}
+
+	[data-title][data-align="center"]::before {
+		right: 0;
+		left: 0;
+		margin: auto;
+	}
+
+	.form-group label {
+		@apply block mb-3;
+	}
+
+	.form-group input {
+		@apply block bg-white rounded-md py-3 px-4 text-lg border-2 w-full;
+		outline: none;
+		border-color: transparent;
+	}
+
+	.form-group input::placeholder {
+		@apply text-grey;
+	}
+
+	.form-group input:focus {
+		@apply border-primary
+	}
+
+	.form-group input:focus::placeholder {
+		opacity: .5;
+	}
+}
+
+@layer components {
+	.close-btn {
+		@apply flex items-center justify-center w-12 aspect-square rounded-full bg-black/30
+	}
+}
+
+@layer utilities {
+	.album {
+		grid-auto-rows: 25rem;
+	}
+
+	.col2-masonry {
+		@apply grid-cols-2;
+	}
+
+	.c2-album-image:nth-child(even) {
+		height: calc(100% + 3rem);
+	}
+
+	.c2-album-image:nth-child(odd) {
+		height: calc(100% - 3rem);
+		margin-top: auto;
+	}
+
+	.col3-masonry {
+		@apply grid-cols-3;
+	}
+
+	.c3-album-image:nth-child(even),
+	.c3-album-image:nth-child(odd) {
+		height: 100%;
+	}
+
+	.c3-album-image:nth-child(6n-4) {
+		height: calc(100% + 3rem);
+	}
+
+	.c3-album-image:nth-child(6n-1) {
+		height: calc(100% - 3rem);
+		margin-top: auto;
+	}
+
+	.page-banner {
+		transition: 1s ease-in-out;
+		transition-property: opacity;
+	}
+	
+	.page-banner.switch {
+		opacity: 0;
+	}
+}
