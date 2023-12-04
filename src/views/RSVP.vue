@@ -32,7 +32,7 @@
               >Enter your first name to select from the list</label
             >
             <input
-              v-model="state.form.name"
+              v-model="state.form.fullname"
               type="text"
               :placeholder="state.form.placeholder"
               class="placeholder-grey"
@@ -51,7 +51,7 @@
                 v-else
                 class="text-grey px-4 py-2 my-1 rounded-md cursor-default"
                 :class="[
-                  person.id === state.form.invitee.id
+                  person.id === state.form.fullname.id
                     ? 'bg-grey-light/30'
                     : 'hover:bg-[#DFDCCF]',
                 ]"
@@ -61,23 +61,31 @@
               </li>
             </ul>
           </ClickWrapper> -->
-          <!-- slots -->
           <div class="form-group mb-6">
-            <label for="invitee">
-              Enter your first name to select from the list
-            </label>
+            <label for="invitee"> Your full name </label>
             <input
-              v-model="state.form.invitee"
+              v-model="state.form.fullname"
               name="invitee"
+              autocomplete="name"
               placeholder="Enter your name"
               class="placeholder-grey"
             />
           </div>
           <div class="form-group mb-6">
-            <label for="slots">Number of people admitted by invite</label>
+            <label for="phone"> Your phone number </label>
             <input
-              v-model="state.form.slots"
-              name="slots"
+              v-model="state.form.phone_number"
+              name="phone"
+              autocomplete="tel"
+              placeholder="Enter your phone number"
+              class="placeholder-grey"
+            />
+          </div>
+          <div class="form-group mb-6">
+            <label for="seats">Number of seats to occupy</label>
+            <input
+              v-model="state.form.seats"
+              name="seats"
               type="number"
               placeholder="1"
               class="placeholder-grey"
@@ -87,7 +95,11 @@
             :disabled="disabled"
             class="text-white font-medium px-8 py-4 rounded-full w-full bg-primary disabled:bg-primary/50 mt-12"
           >
-            <Loader v-if="state.loading" color="white" class="mx-auto my-1.5" />
+            <Loader
+              v-if="state.confirming"
+              color="white"
+              class="mx-auto my-1.5"
+            />
             <span v-else>
               {{
                 state.confirmed
@@ -123,24 +135,25 @@ import {
   computed,
   watch,
   inject,
-  onMounted,
-  onBeforeUnmount,
+  // onMounted,
+  // onBeforeUnmount,
 } from "vue";
 import {
-  collection,
-  query,
-  where,
-  orderBy,
-  getDocs,
-  updateDoc,
+  // collection,
+  // query,
+  // where,
+  // orderBy,
+  // getDocs,
+  // updateDoc,
   doc,
+  setDoc,
 } from "firebase/firestore";
-import setAbortableTimeout from "@/utils/setAbortableTimeout";
+// import setAbortableTimeout from "@/utils/setAbortableTimeout";
 // import useEventListener from "@/composables/useEventListener";
 
 import VisitRegistryIcon from "@/components/icons/visit-registry.vue";
 import PageCloseButton from "@/components/page-close-button.vue";
-import ClickWrapper from "@/components/ClickWrapper.vue";
+// import ClickWrapper from "@/components/ClickWrapper.vue";
 import Loader from "@/components/loader.vue";
 
 import b1 from "@/assets/images/rsvp/1.jpg";
@@ -153,58 +166,61 @@ const state = reactive({
   // form: {
   //   placeholder: "Type here",
   //   name: "",
-  //   slots: null,
+  //   seats: null,
   //   invitee: {},
   // },
   form: {
-    invitee: "",
-    slots: 1,
+    fullname: "",
+    phone_number: "",
+    seats: 1,
   },
   // invitees: [],
-  focused: false,
-  loading: false,
-  fetching: false,
+  // focused: false,
+  // fetching: false,
+  confirming: false,
   confirmed: false,
 });
 const banner = ref(null);
 // const images = [b1, b2, b3];
 const images = [b1];
 const index = ref(0);
-// const collectionName = "invites";
-let bannerTimeout;
-let abortController;
+const collectionName = "attendees";
+// let bannerTimeout;
+// let abortController;
 
 // const showList = computed(
 //   () => state.fetching || (state.focused && state.invitees.length)
 // );
-// const disabled = computed(() => !(state.form.invitee.id && state.form.slots));
-const disabled = computed(() => !(state.form.invitee && state.form.slots));
+// const disabled = computed(() => !(state.form.fullname.id && state.form.seats));
+const disabled = computed(
+  () => !(state.form.fullname && state.form.phone_number && state.form.seats)
+);
 
 // useEventListener(banner, 'transitionend', handleImageChange)
 
 // watch(
-//   () => state.form.name,
+//   () => state.form.fullname,
 //   () => {
 //     abortController?.abort?.();
 //     abortController = new AbortController();
 //     setAbortableTimeout(getInvitees, 500, abortController.signal);
 //   }
 // );
-// watch(
-//   () => state.confirmed,
-//   (newVal) => {
-//     if (newVal) {
-//       setTimeout(() => {
-//         state.confirmed = false;
-//         state.form = {
-//           slots: null,
-//           invitee: null,
-//           name: "",
-//         };
-//       }, 2000);
-//     }
-//   }
-// );
+watch(
+  () => state.confirmed,
+  (newVal) => {
+    if (newVal) {
+      setTimeout(() => {
+        state.confirmed = false;
+        state.form = {
+          seats: null,
+          // invitee: null,
+          name: "",
+        };
+      }, 2000);
+    }
+  }
+);
 
 // onMounted(() => {
 //   bannerTimeout = setTimeout(() => {
@@ -214,28 +230,28 @@ const disabled = computed(() => !(state.form.invitee && state.form.slots));
 
 // onBeforeUnmount(() => clearTimeout(bannerTimeout));
 
-function handleImageChange(event) {
-  const el = banner.value;
-  if (!el) return;
-  if (el.classList.contains("switch")) {
-    index.value = (index.value + 1) % images.length;
-    el.classList.remove("switch");
-  } else {
-    bannerTimeout = setTimeout(() => {
-      el.classList.add("switch");
-    }, 3000);
-  }
-}
+// function handleImageChange(event) {
+//   const el = banner.value;
+//   if (!el) return;
+//   if (el.classList.contains("switch")) {
+//     index.value = (index.value + 1) % images.length;
+//     el.classList.remove("switch");
+//   } else {
+//     bannerTimeout = setTimeout(() => {
+//       el.classList.add("switch");
+//     }, 3000);
+//   }
+// }
 
 // async function getInvitees() {
-//   if (!state.form.name.length) return;
+//   if (!state.form.fullname.length) return;
 
 //   try {
 //     state.fetching = true;
 //     const q = query(
 //       collection(db, collectionName),
-//       where("name", ">=", state.form.name),
-//       where("name", "<=", state.form.name + "~"),
+//       where("name", ">=", state.form.fullname),
+//       where("name", "<=", state.form.fullname + "~"),
 //       orderBy("name")
 //     );
 //     const snapshot = await getDocs(q);
@@ -253,22 +269,29 @@ function handleImageChange(event) {
 // }
 
 // function selectInvitee(person) {
-//   state.form.invitee = person;
-//   state.form.slots = person.admittance;
-//   state.form.name = person.name;
+//   state.form.fullname = person;
+//   state.form.seats = person.admittance;
+//   state.form.fullname = person.name;
 //   state.form.placeholder = "";
 //   state.focused = false;
 // }
 
 async function confirmAttendance() {
   try {
-    state.loading = true;
-    // await updateDoc(doc(db, collectionName, state.form.invitee.id), {
-    //   rsvp: true,
-    // });
+    state.confirming = true;
+    await setDoc(
+      doc(
+        db,
+        collectionName,
+        state.form.fullname.replace(/\s/g, "-").toLowerCase()
+      ),
+      state.form
+    );
     state.confirmed = true;
+  } catch (e) {
+    console.error(e);
   } finally {
-    state.loading = false;
+    state.confirming = false;
   }
 }
 
