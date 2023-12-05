@@ -3,6 +3,7 @@ import { createApp } from "vue";
 import App from "@/App.vue";
 import router from "@/router";
 import firestore from "@/plugins/firestore";
+import paystack from "@/plugins/paystack";
 
 import "@/tailwind.css";
 
@@ -18,5 +19,6 @@ app.use(firestore, {
   appId: import.meta.env.VITE_FIREBASE_APP_ID,
   measurementId: "G-5MQ0YD04M4",
 });
+app.use(paystack);
 
 app.mount("#app");

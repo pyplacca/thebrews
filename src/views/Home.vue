@@ -143,7 +143,7 @@ section#connection {
       </p>
       <div class="text-5xl font-serif lg:ml-40">
         Wilson & <br />
-        Efya
+        Eyra
       </div>
     </div>
   </section>
@@ -216,7 +216,7 @@ section#connection {
     </template>
     <template #button>
       <a
-        href="https://paystack.com/pay/qf8ntg48m4"
+        :href="paystack.paymentLink"
         target="blank"
         class="action-btn w-fit text-black"
       >
@@ -299,7 +299,7 @@ section#connection {
 
 <script setup>
 import { RouterLink as Link, useRouter } from "vue-router";
-import { ref } from "vue";
+import { ref, inject } from "vue";
 
 import { useIntersectionObserver } from "@/composables";
 
@@ -312,6 +312,8 @@ import ViewAlbumIcon from "@/components/icons/view-album.vue";
 
 import rsvp from "@/assets/images/rsvp.jpg";
 import registry from "@/assets/images/registry.jpg";
+
+const paystack = inject("paystack");
 
 const story = ref(null);
 const gallery = ref(null);

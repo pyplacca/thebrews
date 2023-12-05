@@ -119,7 +119,7 @@
         Visit our registry
       </div>
       <a
-        href="https://paystack.com/pay/qf8ntg48m4"
+        :href="paystack.paymentLink"
         target="blank"
         class="action-btn block w-fit mx-auto"
       >
@@ -161,6 +161,7 @@ import b1 from "@/assets/images/rsvp/1.jpg";
 // import b3 from "@/assets/images/rsvp/3.jpg";
 
 const db = inject("firestore");
+const paystack = inject("paystack");
 
 const state = reactive({
   // form: {
