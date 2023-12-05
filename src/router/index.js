@@ -3,7 +3,7 @@ import Home from "@/views/Home.vue";
 
 function setPageTitle(title) {
   return () => {
-    document.title = `${title ? title + " | " : ""}Wilson & Efya`;
+    document.title = `${title ? title + " | " : ""}Wilson & Eyra`;
   };
 }
 
