@@ -10,7 +10,7 @@
       />
     </div>
     <div class="max-w-4xl mx-auto text-grey-dark">
-      <p class="my-28 leading-7 text-center">
+      <p class="py-20 mt-14 leading-7 text-center">
         Our paths first crossed when Wilson joined the Cedar Protocol Team
         several years ago. The initial encounter occurred during a national
         assignment at the Pentecost Retreat Centre in Weija in March 2020. On
@@ -24,8 +24,90 @@
         commenced as a simple acquaintanceship blossomed into something profound
         and transcended the ordinary.
       </p>
+      <div
+        class="grid lg:grid-cols-[1fr_4rem_1fr] text-gray-dark py-20 gap-6 isolate"
+      >
+        <p class="leading-7">
+          <span class="text-black font-semibold">
+            Fast forward to March 12, 2020 </span
+          >, a significant day as I graduated with a Master of Communications.
+          Wilson, among the many well-wishers, reached out with congratulations.
+          Subsequent interactions, including a conversation sparked by his
+          sister's birthday celebration in April of the same year, gradually
+          deepened our connection. Wilson asked if I was born in April and I
+          responded in the affirmative. He then replied, “I'm not surprised
+          because you have got Beauty and Confidence.” Our conversations
+          lengthened and evolved and touched on diverse topics despite the
+          challenging year (COVID-19) we were all facing.
+        </p>
+        <img
+          src="@/assets/images/story/1.1.jpg"
+          alt=""
+          class="w-full col-span-2 row-start-1 lg:row-start-auto"
+        />
+        <img
+          src="@/assets/images/story/1.2.jpg"
+          alt=""
+          class="w-full col-span-2 lg:-mt-12 lg:z-[-1]"
+        />
+        <p class="leading-7">
+          The turning point came when Wilson found out I was learning how to
+          bake. In his sweet melodious voice, he asked a favor: “I like cakes,
+          when will you bake me a cake?”. This request prompted me to inquire
+          about his birthdate. Little did he know that on his birthday, a
+          promise would be fulfilled as I presented him with a personally baked
+          and decorated cake. This act of kindness became a pivotal moment,
+          strengthening the bond that was developing between us. <br /><br />
+
+          Our friendship continued to blossom as we found ourselves standing
+          close to each other posing for pictures once again in October 2020.
+          Wilson requested to take a picture with me. I jokingly responded in
+          the affirmative and said “On the condition that you post the picture
+          on your status on WhatsApp”.
+        </p>
+      </div>
     </div>
-    <div class="flex items-start gap-x-24 text-grey-dark relative">
+    <!-- section -->
+    <div class="grid lg:grid-cols-[300px_50px_1fr] gap-8 py-20 text-grey-dark">
+      <img
+        src="@/assets/images/story/2.1.png"
+        alt=""
+        class="w-full lg:col-span-2"
+      />
+      <p class="leading-7">
+        This playful condition set by me led to a posted picture on Wilson's
+        WhatsApp status, sparking reactions and inquiries from curious viewers.
+        He reported to me how many people were lambasting him and asking him for
+        explanations with others asking him if it is a save-the-date picture.
+        From then on, Wilson became a consistent presence, regularly engaging in
+        conversations and expressing admiration for my baking skills.
+      </p>
+      <div
+        class="lg:col-start-2 lg:col-span-3 grid lg:grid-cols-[370px_1fr] lg:-mt-[22rem] gap-8"
+      >
+        <img src="@/assets/images/story/2.2.png" alt="" class="w-full" />
+        <p class="leading-7">
+          However, I had set a protective shield by expressing my reservations
+          about relationships with guys from the same church. In my estimation,
+          this will prevent Wilson from having any amorous feelings towards me.
+          <br />
+          As to whether this worked, your guess is as good as mine. <br /><br />
+
+          Despite my attempts to safeguard against romantic feelings, our
+          friendship deepened when we were paired for Protocol duties as
+          Officers in Charge of the service in November 2020. As fate would have
+          it, my car broke down leaving Wilson to pick me up to church and back.
+          <br /><br />
+
+          From 2020 to the latter part of 2022 our journey of friendship was
+          firmed up as we spent time chatting and going on date nights. Through
+          challenges, laughter, and shared moments, Wilson became more than a
+          friend.
+        </p>
+      </div>
+    </div>
+    <!--  -->
+    <!-- <div class="flex items-start gap-x-24 text-grey-dark relative py-20">
       <div>
         <p class="py-5">
           In the course of our friendship, Wilson insisted on teaching me the
@@ -62,7 +144,7 @@
         src="@/assets/images/story/3.2.jpg"
         class="w-4/12 h-full object-contain float-right"
       />
-    </div>
+    </div> -->
   </div>
 </template>
 <script setup>

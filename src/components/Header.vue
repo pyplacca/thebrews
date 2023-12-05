@@ -14,7 +14,7 @@
       <ul>
         <Link to="/#registry">REGISTRY</Link>
         <Link to="/rsvp">RSVP</Link>
-        <Link to="#story">OUR STORY</Link>
+        <Link to="/story">OUR STORY</Link>
         <Link to="/album?category=prewedding">PHOTO ALBUM</Link>
       </ul>
     </nav>
