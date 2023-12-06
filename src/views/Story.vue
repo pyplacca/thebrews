@@ -43,12 +43,12 @@
         <img
           src="@/assets/images/story/1.1.jpg"
           alt=""
-          class="w-full col-span-2 row-start-1 lg:row-start-auto"
+          class="w-full lg:col-span-2 row-start-1 lg:row-start-auto"
         />
         <img
           src="@/assets/images/story/1.2.jpg"
           alt=""
-          class="w-full col-span-2 lg:-mt-12 lg:z-[-1]"
+          class="w-full lg:col-span-2 lg:-mt-12 lg:z-[-1]"
         />
         <p class="leading-7">
           The turning point came when Wilson found out I was learning how to
@@ -67,7 +67,7 @@
         </p>
       </div>
     </div>
-    <!-- section -->
+    <!-- section 2 -->
     <div class="grid lg:grid-cols-[300px_50px_1fr] gap-8 py-20 text-grey-dark">
       <img
         src="@/assets/images/story/2.1.png"
@@ -106,45 +106,46 @@
         </p>
       </div>
     </div>
-    <!--  -->
-    <!-- <div class="flex items-start gap-x-24 text-grey-dark relative py-20">
-      <div>
-        <p class="py-5">
-          In the course of our friendship, Wilson insisted on teaching me the
-          game of chess, promising it would offer valuable insights into life
-          and relationships. He also stumbled upon how I had saved his name on
-          my phone, leading to a light-hearted exchange. As time progressed,
-          Wilson affectionately began referring to me as "Empress" from January
-          to April 2021, a term I initially opposed.
-        </p>
-        <div class="flex items-start gap-8 max-w-md">
-          <p>
-            His persistence, coupled with expressions of his deep feelings,
-            culminated in a heartfelt proposal during one of our date nights. He
-            said “What I feel for you is unusual, they are feelings I have never
-            felt for anyone before. I want to marry you”. <br /><br />
-
-            Touched by his sincerity, I sought time to pray about the decision,
-            during which Wilson appeared in my dreams consistently whenever I
-            raised a prayer about his proposal. In the process of waiting for an
-            answer, he remarked one day “I know it is only Rev Wengam who can
-            change your mind, so I would talk to Rev Wengam about my interest in
-            you”. I was skeptical he could talk to Rev Stephen Wengam but to my
-            dismay, he manned up and made his intentions about me known to Rev.
-            Wengam. This bold move convinced me to say YES. After months of
-            courtship, we find ourselves on the path to our Happily Ever After.
-          </p>
-          <img
-            src="@/assets/images/story/3.1.jpg"
-            class="w-80 h-auto object-contain absolute bottom-10 right-64"
-          />
-        </div>
-      </div>
+    <!-- section 3 -->
+    <div class="grid gap-8 lg:grid-cols-[1fr_70px_250px] text-grey-dark py-20">
+      <img src="@/assets/images/story/3.2.jpg" class="w-full lg:hidden" />
+      <p class="leading-7">
+        In the course of our friendship, Wilson insisted on teaching me the game
+        of chess, promising it would offer valuable insights into life and
+        relationships. He also stumbled upon how I had saved his name on my
+        phone, leading to a light-hearted exchange. As time progressed, Wilson
+        affectionately began referring to me as "Empress" from January to April
+        2021, a term I initially opposed.
+      </p>
       <img
-        src="@/assets/images/story/3.2.jpg"
-        class="w-4/12 h-full object-contain float-right"
+        src="@/assets/images/story/3.1.jpg"
+        class="hidden lg:inline w-full col-span-2"
       />
-    </div> -->
+      <div
+        class="grid gap-8 lg:grid-cols-[1fr_350px] lg:col-span-2 lg:-mt-[34rem]"
+      >
+        <p class="leading-7">
+          His persistence, coupled with expressions of his deep feelings,
+          culminated in a heartfelt proposal during one of our date nights. He
+          said “What I feel for you is unusual, they are feelings I have never
+          felt for anyone before. I want to marry you”. <br /><br />
+
+          Touched by his sincerity, I sought time to pray about the decision,
+          during which Wilson appeared in my dreams consistently whenever I
+          raised a prayer about his proposal. In the process of waiting for an
+          answer, he remarked one day “I know it is only Rev Wengam who can
+          change your mind, so I would talk to Rev Wengam about my interest in
+          you”. I was skeptical he could talk to Rev Stephen Wengam but to my
+          dismay, he manned up and made his intentions about me known to Rev.
+          Wengam. This bold move convinced me to say YES. After months of
+          courtship, we find ourselves on the path to our Happily Ever After.
+        </p>
+        <img
+          src="@/assets/images/story/3.2.jpg"
+          class="w-full hidden lg:inline"
+        />
+      </div>
+    </div>
   </div>
 </template>
 <script setup>

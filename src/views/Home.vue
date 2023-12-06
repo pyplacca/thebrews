@@ -2,6 +2,7 @@
 section#intro {
   background-image: url("@/assets/images/intro.jpg");
   background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
 }
 
