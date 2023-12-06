@@ -240,14 +240,19 @@ section#connection {
         Memories to keep <br />
         forever
       </h2>
-      <p class="max-w-md text-right leading-7 mb-12">
-        <span class="font-semibold">
+      <p class="max-w-md text-right leading-7 text-grey-dark mb-12">
+        We've created this website as a convenient and interactive way to share
+        all of the details leading up to our wedding and our favourite memories
+        with you. Take a look around and don't forget to check back after the
+        wedding for more photos. We are so excited to share this day with you
+        and look forward to dancing with all of our favourite people!
+        <!-- <span class="font-semibold">
           Something about photos being available here after the event.
         </span>
         <span class="text-grey-dark">
           We have most things we need for life and love. If you want to bless us
           with a gift, we can always use cash gifts as we move to our new place.
-        </span>
+        </span> -->
       </p>
       <button
         class="action-btn"
