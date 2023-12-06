@@ -41,11 +41,13 @@
           challenging year (COVID-19) we were all facing.
         </p>
         <img
+          loading="lazy"
           src="@/assets/images/story/1.1.jpg"
           alt=""
           class="w-full lg:col-span-2 row-start-1 lg:row-start-auto"
         />
         <img
+          loading="lazy"
           src="@/assets/images/story/1.2.jpg"
           alt=""
           class="w-full lg:col-span-2 lg:-mt-12 lg:z-[-1]"
@@ -70,6 +72,7 @@
     <!-- section 2 -->
     <div class="grid lg:grid-cols-[300px_50px_1fr] gap-8 py-20 text-grey-dark">
       <img
+        loading="lazy"
         src="@/assets/images/story/2.1.png"
         alt=""
         class="w-full lg:col-span-2"
@@ -85,7 +88,12 @@
       <div
         class="lg:col-start-2 lg:col-span-3 grid lg:grid-cols-[370px_1fr] lg:-mt-[22rem] gap-8"
       >
-        <img src="@/assets/images/story/2.2.png" alt="" class="w-full" />
+        <img
+          loading="lazy"
+          src="@/assets/images/story/2.2.png"
+          alt=""
+          class="w-full"
+        />
         <p class="leading-7">
           However, I had set a protective shield by expressing my reservations
           about relationships with guys from the same church. In my estimation,
@@ -108,7 +116,11 @@
     </div>
     <!-- section 3 -->
     <div class="grid gap-8 lg:grid-cols-[1fr_70px_250px] text-grey-dark py-20">
-      <img src="@/assets/images/story/3.2.jpg" class="w-full lg:hidden" />
+      <img
+        loading="lazy"
+        src="@/assets/images/story/3.2.jpg"
+        class="w-full lg:hidden"
+      />
       <p class="leading-7">
         In the course of our friendship, Wilson insisted on teaching me the game
         of chess, promising it would offer valuable insights into life and
@@ -118,6 +130,7 @@
         2021, a term I initially opposed.
       </p>
       <img
+        loading="lazy"
         src="@/assets/images/story/3.1.jpg"
         class="hidden lg:inline w-full col-span-2"
       />
@@ -141,6 +154,7 @@
           courtship, we find ourselves on the path to our Happily Ever After.
         </p>
         <img
+          loading="lazy"
           src="@/assets/images/story/3.2.jpg"
           class="w-full hidden lg:inline"
         />
