@@ -11,6 +11,7 @@
       <div class="md:ml-auto opacity-[0.75]">thebrews.codesworth.io 2023</div>
       <div class="flex gap-y-4 gap-x-6">
         <a :href="paystack.paymentLink" target="blank"> REGISTRY </a>
+        <Link to="/story">OUR STORY</Link>
         <Link to="/rsvp">RSVP</Link>
       </div>
     </footer>
