@@ -23,7 +23,8 @@ section#story.play {
 }
 
 section#connection {
-  background-image: url("@/assets/images/story.jpg");
+  background-image: linear-gradient(to top, rgb(0, 0, 0, 0.6) 20%, transparent),
+    url("@/assets/images/story.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -151,15 +152,18 @@ section#connection {
 
   <!--  -->
   <section id="connection">
-    <div class="container py-36 text-white">
-      <h2 class="text-center text-6xl mb-8 font-serif">
+    <blockquote class="container max-w-screen-md py-36 text-white">
+      <div class="text-6xl mb-8 font-serif">
         I believe that every <br />
         single event
-      </h2>
-      <!-- <p class="text-center text-3xl max-w-sm mx-auto font-normal">
-        I want the connection, the vulnerability
-      </p> -->
-    </div>
+      </div>
+      <p class="text-right text-3xl max-w-sm ml-auto">
+        in life happens is an opportunity to choose love over fear
+      </p>
+      <cite class="block font-serif not-italic text-2xl w-fit ml-auto mt-2">
+        - Oprah Winfrey
+      </cite>
+    </blockquote>
   </section>
 
   <!-- rsvp -->
